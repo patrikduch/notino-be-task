@@ -85,6 +85,11 @@ public class FormatExchangeController : ControllerBase
         })).ToActionResult(r => File(r, "application/xml", exchangeJsonToXmlDto.DestinationFileName));
     }
 
+    /// <summary>
+    /// Load file from any local resource.
+    /// </summary>
+    /// <param name="file">Input file name.</param>
+    /// <returns>Content of loaded file.</returns>
     [HttpGet("load-file")]
     public async Task<IActionResult> LoadFileFromPath(IFormFile file)
     {
