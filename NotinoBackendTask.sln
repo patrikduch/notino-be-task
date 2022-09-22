@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Položky řešení", "Položky řešení", "{BD339D0B-5CA8-4EC8-B944-6240CE0917CB}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotinoBackendTask.API", "NotinoBackendTask.API\NotinoBackendTask.API.csproj", "{4D74CDB6-7FF3-4981-AEBD-0D88FBFF37FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotinoBackendTask.Application", "NotinoBackendTask.Application\NotinoBackendTask.Application.csproj", "{C0D9CC7C-27D3-409B-BF5C-301359EF25AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotinoBackendTask.Infrastructure", "NotinoBackendTask.Infrastructure\NotinoBackendTask.Infrastructure.csproj", "{D2A56E03-F101-4CBB-98CE-120F81AA9608}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotinoBackendTask.Tests", "NotinoBackendTask.Tests\NotinoBackendTask.Tests.csproj", "{E02FD09D-07D3-4B35-A867-DF935EC63EAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotinoBackendTask.Domain", "NotinoBackendTask.Domain\NotinoBackendTask.Domain.csproj", "{5D04FF43-2520-4FF3-A9D2-C4DB9C8DB7B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D74CDB6-7FF3-4981-AEBD-0D88FBFF37FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D74CDB6-7FF3-4981-AEBD-0D88FBFF37FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D74CDB6-7FF3-4981-AEBD-0D88FBFF37FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D74CDB6-7FF3-4981-AEBD-0D88FBFF37FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D9CC7C-27D3-409B-BF5C-301359EF25AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D9CC7C-27D3-409B-BF5C-301359EF25AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D9CC7C-27D3-409B-BF5C-301359EF25AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D9CC7C-27D3-409B-BF5C-301359EF25AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A56E03-F101-4CBB-98CE-120F81AA9608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A56E03-F101-4CBB-98CE-120F81AA9608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A56E03-F101-4CBB-98CE-120F81AA9608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A56E03-F101-4CBB-98CE-120F81AA9608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02FD09D-07D3-4B35-A867-DF935EC63EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02FD09D-07D3-4B35-A867-DF935EC63EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02FD09D-07D3-4B35-A867-DF935EC63EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02FD09D-07D3-4B35-A867-DF935EC63EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D04FF43-2520-4FF3-A9D2-C4DB9C8DB7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D04FF43-2520-4FF3-A9D2-C4DB9C8DB7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D04FF43-2520-4FF3-A9D2-C4DB9C8DB7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D04FF43-2520-4FF3-A9D2-C4DB9C8DB7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01D84045-7D31-4960-B14F-25F4B289B778}
+	EndGlobalSection
+EndGlobal
