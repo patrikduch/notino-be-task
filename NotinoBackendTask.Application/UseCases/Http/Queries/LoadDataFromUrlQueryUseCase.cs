@@ -32,7 +32,7 @@ public class LoadDataFromUrlQueryUseCase : IRequestHandler<LoadDataFromUrlQueryR
     }
 
     /// <summary>
-    /// Handle for command query of <seealso cref="LoadDataFromUrlQueryRequest"/>.
+    /// Interceptor for loading external file content from HTTP URL.
     /// </summary>
     /// <param name="request"><seealso cref="LoadDataFromUrlQueryRequest"/> interceptor object.</param>
     /// <param name="cancellationToken"><seealso cref="CancellationToken"/> object.</param>

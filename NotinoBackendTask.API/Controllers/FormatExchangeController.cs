@@ -13,6 +13,7 @@ using NotinoBackendTask.API.Extensions;
 using NotinoBackendTask.Application.Dtos.Requests;
 using NotinoBackendTask.Application.Mediator.FileManagement.Commands.ExchangeJsonToXml;
 using NotinoBackendTask.Application.Mediator.FileManagement.Commands.ExchangeXmlToJson;
+using NotinoBackendTask.Application.Mediator.FileManagement.Commands.SaveLocalFile;
 using NotinoBackendTask.Application.Mediator.FileManagement.Queries;
 using NotinoBackendTask.Application.Mediator.Http.Queries;
 
@@ -100,10 +101,20 @@ public class FormatExchangeController : ControllerBase
         })).ToActionResult(r => r);
     }
 
-    [HttpGet("save-file")]
-    public async Task<IActionResult> SaveFileToPath(IFormFile file)
+
+    /// <summary>
+    /// Save file to any local resource.
+    /// </summary>
+    /// <param name="saveLocalFileRequestDto">Data transfer object for saving new content to particular file.</param>
+    /// <returns></returns>
+    [HttpPost("save-file")]
+    public async Task<IActionResult> SaveFileToPath([FromForm] SaveLocalFileRequestDto saveLocalFileRequestDto)
     {
-        return Ok();
+        return (await _mediator.Send(new SaveLocalFileQueryCommand
+        {
+            Document = saveLocalFileRequestDto.Document,
+            AbsoluteDestinationFilePath = saveLocalFileRequestDto.AbsoluteDestinationFilePath
+        })).ToActionResult(r => r);
     }
 
 }

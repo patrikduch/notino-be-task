@@ -13,4 +13,6 @@ namespace NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 public interface IXmlFileUtils
 {
     string ConvertXmltoJson(string fileContent);
+
+    string ConvertAnyObjectToXml(object obj);
 }

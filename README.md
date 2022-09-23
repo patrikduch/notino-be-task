@@ -91,3 +91,9 @@ https://www.blesk.cz/
 https://www.vsb.cz/cs/
 https://www.w3schools.com/xml/note.xml
 https://www.csob.cz/portal/firmy/prehled-on-line-kanalu-a-aplikaci/csob-ceb
+
+
+Writting to file
+
+C:\Users\duchp\Downloads\ahoj.json
+C:\Users\duchp\Downloads\test.xml

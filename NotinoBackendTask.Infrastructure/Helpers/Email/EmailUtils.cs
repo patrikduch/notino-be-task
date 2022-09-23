@@ -9,6 +9,7 @@ namespace NotinoBackendTask.Infrastructure.Helpers.Email;
 
 using Microsoft.Extensions.Options;
 using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
+using NotinoBackendTask.Application.Dtos;
 using NotinoBackendTask.Application.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -33,9 +34,9 @@ public class EmailUtils : IEmailUtils
     /// <summary>
     /// Send single e-mail.
     /// </summary>
-    /// <param name="email"><seealso cref="EmailModel"/> data object.</param>
+    /// <param name="email"><seealso cref="EmailDto"/> data object.</param>
     /// <returns>Bool with success indication.</returns>
-    public async Task<bool> SendEmail(EmailModel email)
+    public async Task<bool> SendEmail(EmailDto email)
     {
         var apiKey = _emailSettings.ApiKey;
         var client = new SendGridClient("apikey");

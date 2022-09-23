@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 /// <summary>
-/// 
+/// Bussiness logic for conversion of JSON file to XML.
 /// </summary>
 public class ExchangeJsonToXmlUseCase : IRequestHandler<ExchangeJsonToXmlCommandRequest, Result<byte[]>>
 {
@@ -36,7 +36,7 @@ public class ExchangeJsonToXmlUseCase : IRequestHandler<ExchangeJsonToXmlCommand
     }
 
     /// <summary>
-    /// Bussiness logic for conversion of JSON file to XML.
+    /// Interceptor for handling file conversion from JSON to XML fileformat.
     /// </summary>
     /// <param name="request"><seealso cref="ExchangeJsonToXmlCommandRequest"/> interceptor object.</param>
     /// <param name="cancellationToken"><seealso cref="CancellationToken"/> object.</param>

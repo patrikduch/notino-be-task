@@ -7,12 +7,12 @@
 
 namespace NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 
-using NotinoBackendTask.Application.Models;
+using NotinoBackendTask.Application.Dtos;
 
 /// <summary>
 /// Contract for Email utility.
 /// </summary>
 public interface IEmailUtils
 {
-    Task<bool> SendEmail(EmailModel email);
+    Task<bool> SendEmail(EmailDto email);
 }
