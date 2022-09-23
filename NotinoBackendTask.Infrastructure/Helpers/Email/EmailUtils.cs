@@ -38,12 +38,12 @@ public class EmailUtils : IEmailUtils
     public async Task<bool> SendEmail(EmailModel email)
     {
         var apiKey = _emailSettings.ApiKey;
-        var client = new SendGridClient("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");
-        var from = new EmailAddress("duchpatrik@icloud.com", "Bc. Patrik Duch");
-        var subject = "Sending with SendGrid is Fun";
-        var to = new EmailAddress("duchpatrik@icloud.com", "Bc. Patrik Duch");
-        var plainTextContent = "and easy to do anywemhere, even with C#";
-        var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+        var client = new SendGridClient("apikey");
+        var from = new EmailAddress("emailFrom", "Email name");
+        var subject = "subject";
+        var to = new EmailAddress("emailTo", "Email name");
+        var plainTextContent = "Email plaintext content.";
+        var htmlContent = "<strong>HTML content.</strong>";
         var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
         var response = await client.SendEmailAsync(msg);
 

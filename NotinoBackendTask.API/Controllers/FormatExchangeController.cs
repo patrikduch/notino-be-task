@@ -13,6 +13,7 @@ using NotinoBackendTask.API.Extensions;
 using NotinoBackendTask.Application.Dtos.Requests;
 using NotinoBackendTask.Application.Mediator.FileManagement.Commands.ExchangeJsonToXml;
 using NotinoBackendTask.Application.Mediator.FileManagement.Commands.ExchangeXmlToJson;
+using NotinoBackendTask.Application.Mediator.FileManagement.Queries;
 using NotinoBackendTask.Application.Mediator.Http.Queries;
 
 /// <summary>
@@ -90,10 +91,13 @@ public class FormatExchangeController : ControllerBase
     /// </summary>
     /// <param name="file">Input file name.</param>
     /// <returns>Content of loaded file.</returns>
-    [HttpGet("load-file")]
-    public async Task<IActionResult> LoadFileFromPath(IFormFile file)
+    [HttpPost("load-file")]
+    public async Task<IActionResult> LoadLocalFileFromPath(IFormFile file)
     {
-        return Ok();
+        return (await _mediator.Send(new LoadLocalFileQueryRequest
+        {
+            File = file,
+        })).ToActionResult(r => r);
     }
 
     [HttpGet("save-file")]
