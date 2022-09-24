@@ -23,8 +23,10 @@ public class XmlFileUtils : IXmlFileUtils
     /// </summary>
     /// <param name="obj">Any object of C# programming language.</param>
     /// <returns>String content with XML structure.</returns>
-    public string ConvertAnyObjectToXml(object obj)
+    public string ConvertAnyObjectToXml(object? obj)
     {
+        if (obj is null) return string.Empty;
+
         using (var writer = new StringWriter())
         {
             new XmlSerializer(obj.GetType()).Serialize(writer, obj);

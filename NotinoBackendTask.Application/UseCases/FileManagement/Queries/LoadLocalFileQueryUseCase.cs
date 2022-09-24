@@ -58,6 +58,6 @@ public class LoadLocalFileQueryUseCase : IRequestHandler<LoadLocalFileQueryReque
             return new Result<string>(validationException);
         }
 
-        return _fileUtils.LoadFile(request.File);
+        return await Task.FromResult(_fileUtils.LoadFile(request.File));
     }
 }

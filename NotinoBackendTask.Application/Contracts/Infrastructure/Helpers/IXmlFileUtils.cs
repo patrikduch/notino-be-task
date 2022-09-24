@@ -16,7 +16,7 @@ public interface IXmlFileUtils
 {
     string ConvertXmltoJson(string fileContent);
 
-    string ConvertAnyObjectToXml(object obj);
+    string ConvertAnyObjectToXml(object? obj);
 
     string WriteLocal(string filename, DocumentDto? document);
 }
