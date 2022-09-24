@@ -1,15 +1,15 @@
-# Zadání [Czech]
+# ZadÃ¡nÃ­ [Czech]
 
-* Projdìte tento kód a popište pøípadné problémy a jak byste je vyøešili.
-* Pøeveïte tento kód na webovou slubu (ASP.NET Core Web API) a upravte kód tak aby bylo moné:
-   * konvertovat mezi formáty XML a JSON
-   * snadno pøidat novı formát (napø. Protobuf)
-   * odeslat zdrojovı a stáhnout vıslednı soubor z API
-   * naèíst a uloit data z/do libovolné cesty na disku (pøípadnì cloud-storage)
-   * naèíst data z HTTP URL (nelze ukládat)
-   * odeslat vıslednı soubor e-mailem (staèí pouze nástøel)
-* Napište testy
-* Refactorujte kód tak, jak by jste si pøedstavovali produkèní aplikaci, která je vyvíjena a provozována vaším tımem.
+* ProjdÄ›te tento kÃ³d a popiÅ¡te pÅ™Ã­padnÃ© problÃ©my a jak byste je vyÃ¸eÅ¡ili.
+* PÅ™evedte tento kÃ³d na webovou sluÅ¾bu (ASP.NET Core Web API) a upravte kÃ³d tak aby bylo moÅ¾nÃ©:
+   * konvertovat mezi formÃ¡ty XML a JSON
+   * snadno pÃ¸idat novÃ½ formÃ¡t (napÃ¸. Protobuf)
+   * odeslat zdrojovÃ½ a stÃ¡hnout vÃ½slednÃ½ soubor z API
+   * naÄÃ­st a uloÅ¾it data z/do libovolnÃ© cesty na disku (pÃ¸Ã­padnÃ¬ cloud-storage)
+   * naÄÃ­st data z HTTP URL (nelze uklÃ¡dat)
+   * odeslat vÃ½slednÃ½ soubor e-mailem (staÄÃ­ pouze nÃ¡stÅ™el)
+* NapiÅ¡te testy
+* Refactorujte kÃ³d tak, jak by jste si pÅ™edstavovali produkÄnÃ­ aplikaci, kterÃ¡ je vyvÃ­jena a provozovÃ¡na vaÅ¡Ã­m tÃ½mem.
 
 # Assignment [English]
 
