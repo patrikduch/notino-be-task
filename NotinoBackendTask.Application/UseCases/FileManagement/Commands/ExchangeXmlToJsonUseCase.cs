@@ -53,13 +53,13 @@ public class ExchangeXmlToJsonUseCase : IRequestHandler<ExchangeXmlToJsonCommand
         if (!validationResult.IsValid)
         {
             var validationException = new ValidationException(validationResult.Errors);
+            _logger.LogError(validationException, validationException.Message);
+
             return new Result<byte[]>(validationException);
         }
 
-
         var fileContent = _fileUtils.LoadFile(request.File);    
         var jsonContent = _xmlFileUtils.ConvertXmltoJson(fileContent);
-
             
         return await Task.FromResult(_jsonFileUtils.SerializeToUtf8Bytes(jsonContent));
     }

@@ -10,7 +10,6 @@ namespace NotinoBackendTask.Infrastructure.Helpers.FileManagement;
 using Newtonsoft.Json;
 using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 using NotinoBackendTask.Application.Dtos;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -61,6 +60,8 @@ public class XmlFileUtils : IXmlFileUtils
 
         // To convert JSON text contained in string json into an XML node
         var doc = JsonConvert.DeserializeXmlNode(jsonString, deserializationNode);
+
+        if (doc is null) return string.Empty;
 
         doc.Save(filename);
 
