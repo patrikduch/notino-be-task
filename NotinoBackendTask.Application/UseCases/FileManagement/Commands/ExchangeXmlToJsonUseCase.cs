@@ -8,7 +8,6 @@
 namespace NotinoBackendTask.Application.UseCases.FileManagement.Commands;
 
 using FluentValidation;
-using FluentValidation.Results;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
