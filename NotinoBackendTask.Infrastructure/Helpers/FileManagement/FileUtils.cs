@@ -30,8 +30,10 @@ public class FileUtils : IFileUtils
     /// </summary>
     /// <param name="file">Input <seealso cref="IFormFile"/>.</param>
     /// <returns>Content of loaded file.</returns>
-    public string LoadFile(IFormFile file)
+    public string LoadFile(IFormFile? file)
     {
+        if (file is null) return string.Empty;
+
         using (var reader = new StreamReader(file.OpenReadStream()))
         {
             return reader.ReadToEnd();

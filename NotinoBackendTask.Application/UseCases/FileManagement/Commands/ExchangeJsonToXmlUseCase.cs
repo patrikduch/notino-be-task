@@ -8,7 +8,6 @@
 namespace NotinoBackendTask.Application.UseCases.FileManagement.Commands;
 
 using FluentValidation;
-using FluentValidation.Results;
 using LanguageExt.Common;
 using MediatR;
 using Newtonsoft.Json;
@@ -51,24 +50,6 @@ public class ExchangeJsonToXmlUseCase : IRequestHandler<ExchangeJsonToXmlCommand
             var validationException = new ValidationException(validationResult.Errors);
             return new Result<byte[]>(validationException);
         }
-
-        if (request.File is null)
-        {
-            var fileIsNullFailure = new ValidationResult { 
-                Errors =  new List<ValidationFailure>
-                {
-                    new ValidationFailure
-                    {
-                        ErrorCode = "400",
-                        ErrorMessage = "File cannot be null"
-                    }
-                }
-            };
-
-            var validationException = new ValidationException(fileIsNullFailure.Errors);
-            return new Result<byte[]>(validationException);
-        }
-
 
         var fileContent = _fileUtils.LoadFile(request.File);
 

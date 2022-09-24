@@ -57,26 +57,6 @@ public class ExchangeXmlToJsonUseCase : IRequestHandler<ExchangeXmlToJsonCommand
             return new Result<byte[]>(validationException);
         }
 
-        if (request.File is null)
-        {
-            var fileIsNullFailure = new ValidationResult
-            {
-                Errors = new List<ValidationFailure>
-                {
-                    new ValidationFailure
-                    {
-                        ErrorCode = "400",
-                        ErrorMessage = "File cannot be null"
-                    }
-                }
-            };
-
-            _logger.LogError("File cannot be null");
-
-            var validationException = new ValidationException(fileIsNullFailure.Errors);
-            return new Result<byte[]>(validationException);
-        }
-
 
         var fileContent = _fileUtils.LoadFile(request.File);    
         var jsonContent = _xmlFileUtils.ConvertXmltoJson(fileContent);

@@ -16,5 +16,5 @@ public interface IFileUtils
 {
     string GetExtension(string filePath);
 
-    string LoadFile(IFormFile file);
+    string LoadFile(IFormFile? file);
 }
