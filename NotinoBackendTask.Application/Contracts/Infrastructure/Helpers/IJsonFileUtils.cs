@@ -4,6 +4,8 @@
 // </copyright>
 // <author>Patrik Duch</author>
 //-----------------------------------------------------------------------
+using NotinoBackendTask.Application.Dtos;
+
 namespace NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 
 /// <summary>
@@ -12,4 +14,6 @@ namespace NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 public interface IJsonFileUtils
 {
     byte[] SerializeToUtf8Bytes(object fileContent);
+
+    string WriteLocal(string filename, DocumentDto? document);
 }

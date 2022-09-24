@@ -30,7 +30,7 @@ public class ExchangeJsonToXmlUseCaseTest
     /// Test the exchange xml to json.
     /// </summary>
     [Fact]
-    public async Task EchangeJsonToXml_ValidData_SuccessFlow()
+    public async Task ExchangeJsonToXml_ValidData_SuccessFlow()
     {
         #region Arrange
 
@@ -64,7 +64,7 @@ public class ExchangeJsonToXmlUseCaseTest
     }
 
     [Fact]
-    public async Task EchangeJsonToXml_InvalidFile_FaultedFlow()
+    public async Task ExchangeJsonToXml_InvalidFile_FaultedFlow()
     {
         #region Arrange
         //Setup mock file using a memory stream
@@ -100,7 +100,7 @@ public class ExchangeJsonToXmlUseCaseTest
 
 
     [Fact]
-    public async Task EchangeJsonToXml_InvalidFileExtension_FaultedFlow()
+    public async Task ExchangeJsonToXml_InvalidFileExtension_FaultedFlow()
     {
         #region Arrange
         //Setup mock file using a memory stream

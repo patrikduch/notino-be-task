@@ -11,7 +11,7 @@ using FluentValidation;
 using NotinoBackendTask.Application.Enums;
 
 /// <summary>
-/// Validator of <seealso cref="ExchangeJsonToXmlCommandRequest"/> object.
+/// Validator of Mediator <seealso cref="ExchangeJsonToXmlCommandRequest"/> object.
 /// </summary>
 public class ExchangeJsonToXmlCommandValidator : AbstractValidator<ExchangeJsonToXmlCommandRequest>
 {

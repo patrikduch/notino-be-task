@@ -14,5 +14,7 @@ using Microsoft.AspNetCore.Http;
 /// </summary>
 public interface IFileUtils
 {
+    string GetExtension(string filePath);
+
     string LoadFile(IFormFile file);
 }

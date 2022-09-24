@@ -16,6 +16,16 @@ using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 public class FileUtils : IFileUtils
 {
     /// <summary>
+    /// Get extension of particular filename.
+    /// </summary>
+    /// <param name="filePath">Path to particular file.</param>
+    /// <returns>File extension.</returns>
+    public string GetExtension(string filePath)
+    {
+        return Path.GetExtension(filePath);
+    }
+
+    /// <summary>
     /// Load file from in-memory <seealso cref="IFormFile"/> object.
     /// </summary>
     /// <param name="file">Input <seealso cref="IFormFile"/>.</param>

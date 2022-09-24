@@ -5,6 +5,8 @@
 // <author>Patrik Duch</author>
 //-----------------------------------------------------------------------
 
+using NotinoBackendTask.Application.Dtos;
+
 namespace NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 
 /// <summary>
@@ -15,4 +17,6 @@ public interface IXmlFileUtils
     string ConvertXmltoJson(string fileContent);
 
     string ConvertAnyObjectToXml(object obj);
+
+    string WriteLocal(string filename, DocumentDto? document);
 }

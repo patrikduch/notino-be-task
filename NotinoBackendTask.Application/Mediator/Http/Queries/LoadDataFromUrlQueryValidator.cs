@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 
 /// <summary>
-/// Validator of <seealso cref="LoadDataFromUrlQueryRequest"/> object.
+/// Validator of Mediator <seealso cref="LoadDataFromUrlQueryRequest"/> object.
 /// </summary>
 public class LoadDataFromUrlQueryValidator : AbstractValidator<LoadDataFromUrlQueryRequest>
 {

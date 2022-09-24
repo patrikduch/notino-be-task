@@ -9,6 +9,7 @@ namespace NotinoBackendTask.Infrastructure.Helpers.FileManagement;
 
 using Newtonsoft.Json;
 using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
+using NotinoBackendTask.Application.Dtos;
 
 
 /// <summary>
@@ -33,5 +34,18 @@ public class JsonFileUtils : IJsonFileUtils
         jsonWriter.Flush();
         stream.Position = 0;
         return stream.ToArray();
+    }
+
+    /// <summary>
+    /// Write content to the JSON file.
+    /// </summary>
+    /// <param name="filename">Name of the file.</param>
+    /// <param name="document"><seealso cref="DocumentDto"/> object, whose content will be written to specified filename.</param>
+    public string WriteLocal(string filename, DocumentDto? document)
+    {
+        string jsonString = JsonConvert.SerializeObject(document);
+        File.WriteAllText(filename, jsonString);
+
+        return jsonString;
     }
 }

@@ -15,7 +15,7 @@ using NotinoBackendTask.Application.Dtos;
 /// <summary>
 /// Mediator command request for saving new content to select file path.
 /// </summary>
-public class SaveLocalFileQueryCommand : IRequest<Result<string>>
+public class SaveLocalFileCommandRequest : IRequest<Result<string>>
 {
     public string AbsoluteDestinationFilePath { get; set; } = string.Empty;
 

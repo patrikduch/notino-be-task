@@ -110,7 +110,7 @@ public class FormatExchangeController : ControllerBase
     [HttpPost("save-file")]
     public async Task<IActionResult> SaveFileToPath([FromForm] SaveLocalFileRequestDto saveLocalFileRequestDto)
     {
-        return (await _mediator.Send(new SaveLocalFileQueryCommand
+        return (await _mediator.Send(new SaveLocalFileCommandRequest
         {
             Document = saveLocalFileRequestDto.Document,
             AbsoluteDestinationFilePath = saveLocalFileRequestDto.AbsoluteDestinationFilePath

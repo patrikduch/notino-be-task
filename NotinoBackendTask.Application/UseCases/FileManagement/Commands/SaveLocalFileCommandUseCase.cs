@@ -12,7 +12,6 @@ using FluentValidation.Results;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
 using NotinoBackendTask.Application.Enums;
 using NotinoBackendTask.Application.Mediator.FileManagement.Commands.SaveLocalFile;
@@ -22,8 +21,10 @@ using System.Threading.Tasks;
 /// <summary>
 /// Bussiness logic for saving new content into specifed  absolute filepath.
 /// </summary>
-public class SaveLocalFileCommandUseCase : IRequestHandler<SaveLocalFileQueryCommand, Result<string>>
+public class SaveLocalFileCommandUseCase : IRequestHandler<SaveLocalFileCommandRequest, Result<string>>
 {
+    private readonly IFileUtils _fileUtils;
+    private readonly IJsonFileUtils _jsonFileUtils;
     private readonly ILogger<SaveLocalFileCommandUseCase> _logger;
     private readonly IXmlFileUtils _xmlFileUtils;
 
@@ -31,9 +32,12 @@ public class SaveLocalFileCommandUseCase : IRequestHandler<SaveLocalFileQueryCom
     /// Initializes a new instance of the <seealso cref="SaveLocalFileCommandUseCase"/> class.
     /// </summary>
     /// <param name="logger"><seealso cref="ILogger"/> logger object of <seealso cref="SaveLocalFileCommandUseCase"/> class.</param>
-    /// <param name="xmlFileUtils"></param>
-    public SaveLocalFileCommandUseCase(ILogger<SaveLocalFileCommandUseCase> logger, IXmlFileUtils xmlFileUtils)
+    /// <param name="fileUtils"></param>
+    
+    public SaveLocalFileCommandUseCase(IFileUtils fileUtils, IJsonFileUtils jsonFileUtils, ILogger<SaveLocalFileCommandUseCase> logger, IXmlFileUtils xmlFileUtils)
     {
+        _fileUtils = fileUtils;
+        _jsonFileUtils = jsonFileUtils;
         _logger = logger;
         _xmlFileUtils = xmlFileUtils;
     }
@@ -44,25 +48,34 @@ public class SaveLocalFileCommandUseCase : IRequestHandler<SaveLocalFileQueryCom
     /// <param name="request">Intercepting<seealso cref="SaveLocalFileQueryCommand"/> object.</param>
     /// <param name="cancellationToken"><seealso cref="CancellationToken"/> dependency object.</param>
     /// <returns>String representation of changed file content.</returns>
-    public async Task<Result<string>> Handle(SaveLocalFileQueryCommand request, CancellationToken cancellationToken)
+    public async Task<Result<string>> Handle(SaveLocalFileCommandRequest request, CancellationToken cancellationToken)
     {
+        ValidationException validationException;
+
+        var exchangeJsonToXmlCommandValidator = new SaveLocalFileCommandValidator();
+        var validationResult = await exchangeJsonToXmlCommandValidator.ValidateAsync(request);
+
+        if (!validationResult.IsValid)
+        {
+            validationException = new ValidationException(validationResult.Errors);
+            return new Result<string>(validationException);
+        }
+
         // Check file extension
-        var extension = Path.GetExtension(request.AbsoluteDestinationFilePath);
+        var extension = _fileUtils.GetExtension(request.AbsoluteDestinationFilePath);
 
         if (extension.Equals(FileExtensions.JSON))
         {
-            string json = JsonConvert.SerializeObject(request.Document);
-            File.WriteAllText(request.AbsoluteDestinationFilePath, json);
+            var jsonContent = _jsonFileUtils.WriteLocal(request.AbsoluteDestinationFilePath, request.Document);
 
-            return await Task.FromResult(json);
+            return await Task.FromResult(jsonContent);
         }
 
         if (extension.Equals(FileExtensions.XML))
         {
-            var xmlString = _xmlFileUtils.ConvertAnyObjectToXml(request.Document);
-            File.WriteAllText(request.AbsoluteDestinationFilePath, xmlString);
+            var xmlContent = _xmlFileUtils.WriteLocal(request.AbsoluteDestinationFilePath, request.Document);
 
-            return await Task.FromResult(xmlString);
+            return await Task.FromResult(xmlContent);
         }
 
         var fileIsNullFailure = new ValidationResult
@@ -72,14 +85,14 @@ public class SaveLocalFileCommandUseCase : IRequestHandler<SaveLocalFileQueryCom
                     new ValidationFailure
                     {
                         ErrorCode = "400",
-                        ErrorMessage = "File wasn't changed."
+                        ErrorMessage = "Invalid file, check provided file or its extension."
                     }
                 }
         };
 
-        _logger.LogError("File wasn't changed.");
+        _logger.LogError("Invalid file, check provided file or its extension.");
 
-        var validationException = new ValidationException(fileIsNullFailure.Errors);
+        validationException = new ValidationException(fileIsNullFailure.Errors);
         return new Result<string>(validationException);
     }
 }

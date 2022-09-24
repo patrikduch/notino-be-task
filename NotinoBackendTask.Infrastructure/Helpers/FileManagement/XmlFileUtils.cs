@@ -9,6 +9,7 @@ namespace NotinoBackendTask.Infrastructure.Helpers.FileManagement;
 
 using Newtonsoft.Json;
 using NotinoBackendTask.Application.Contracts.Infrastructure.Helpers;
+using NotinoBackendTask.Application.Dtos;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -22,7 +23,6 @@ public class XmlFileUtils : IXmlFileUtils
     /// </summary>
     /// <param name="obj">Any object of C# programming language.</param>
     /// <returns>String content with XML structure.</returns>
-    /// <exception cref="NotImplementedException"></exception>
     public string ConvertAnyObjectToXml(object obj)
     {
         using (var writer = new StringWriter())
@@ -41,5 +41,19 @@ public class XmlFileUtils : IXmlFileUtils
     {
         var xdoc = XDocument.Parse(fileContent);
         return JsonConvert.SerializeObject(xdoc.Root);
+    }
+
+    /// <summary>
+    /// Write content to the XML file.
+    /// </summary>
+    /// <param name="filename">Name of the file.</param>
+    /// <param name="document"><seealso cref="DocumentDto"/> object, whose content will be written to specified filename.</param>
+    /// <returns></returns>
+    public string WriteLocal(string filename, DocumentDto? document)
+    {
+        var xmlString = ConvertAnyObjectToXml(document);
+        File.WriteAllText(filename, xmlString);
+
+        return xmlString;
     }
 }

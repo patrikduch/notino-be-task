@@ -17,7 +17,7 @@ using NotinoBackendTask.Application.Mediator.FileManagement.Commands.ExchangeXml
 using NotinoBackendTask.Application.UseCases.FileManagement.Commands;
 
 /// <summary>
-/// Unit test for <seealso cref="ExchangeXmlToJsonUseCase"/>.
+/// Unit tests for <seealso cref="ExchangeXmlToJsonUseCase"/>.
 /// </summary>
 public class ExchangeXmlToJsonUseCaseTest
 {
@@ -77,7 +77,7 @@ public class ExchangeXmlToJsonUseCaseTest
 
 
     [Fact]
-    public async Task EchangeJsonToXml_InvalidFile_FaultedFlow()
+    public async Task ExchangeJsonToXml_InvalidFile_FaultedFlow()
     {
         #region Act
 
