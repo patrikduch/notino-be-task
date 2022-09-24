@@ -39,19 +39,21 @@ public class LoadDataFromUrlQueryUseCase : IRequestHandler<LoadDataFromUrlQueryR
     /// <returns></returns>
     public async Task<Result<string>> Handle(LoadDataFromUrlQueryRequest request, CancellationToken cancellationToken)
     {
-        var httpClient = _httpClientFactory.CreateClient("httpClient");
-        var createValueItemCommandValidator = new LoadDataFromUrlQueryValidator();
-        var validationResult = await createValueItemCommandValidator.ValidateAsync(request);
 
-        if (!validationResult.IsValid)
+        using(var httpClient = _httpClientFactory.CreateClient("httpClient"))
         {
-            var validationException = new ValidationException(validationResult.Errors);
-            return new Result<string>(validationException);
-        }
+            var createValueItemCommandValidator = new LoadDataFromUrlQueryValidator();
+            var validationResult = await createValueItemCommandValidator.ValidateAsync(request);
 
-        var httpResponseMessage = await httpClient.GetAsync(request.Url);
-        httpClient.Dispose();
+            if (!validationResult.IsValid)
+            {
+                var validationException = new ValidationException(validationResult.Errors);
+                return new Result<string>(validationException);
+            }
 
-        return await httpResponseMessage.Content.ReadAsStringAsync();
+            var httpResponseMessage = await httpClient.GetAsync(request.Url);
+ 
+            return await httpResponseMessage.Content.ReadAsStringAsync();
+        }       
     }
 }
