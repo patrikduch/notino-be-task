@@ -75,16 +75,15 @@ namespace Notino.Homework
     }
 }
 
+# Endpoint testing
 
+## LoadData from Url
 
-C:\Users\duchp\Downloads\test.json
-
-
-Example online XML file
+### Example online XML file
 https://www.w3schools.com/xml/note.xml
 
 
-Example of getting online data
+### Example of getting online data
 http://aukro.cz
 https://www.linkedin.com/feed/
 https://www.blesk.cz/
@@ -92,8 +91,10 @@ https://www.vsb.cz/cs/
 https://www.w3schools.com/xml/note.xml
 https://www.csob.cz/portal/firmy/prehled-on-line-kanalu-a-aplikaci/csob-ceb
 
+## Save to Localfile
 
-Writting to file
-
+### Saving JSON
 C:\Users\duchp\Downloads\ahoj.json
+
+###Saving XML
 C:\Users\duchp\Downloads\test.xml
