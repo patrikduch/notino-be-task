@@ -48,12 +48,14 @@ public class ExchangeJsonToXmlUseCaseTest
 
         _fileUtils.Setup(f => f.LoadFile(file)).Returns("{\"title\":\"Test\"}");
         #endregion
+
         #region Act
         var actual = await _exchangeJsonToXmlUseCase.Handle(new ExchangeJsonToXmlCommandRequest
         {
             File = file,
         }, CancellationToken.None);
         #endregion
+        
         #region Assert
         actual.Should().NotBeNull();
         actual.IsSuccess.Should().BeTrue();
@@ -78,6 +80,7 @@ public class ExchangeJsonToXmlUseCaseTest
 
         _fileUtils.Setup(f => f.LoadFile(file)).Returns("{\"title\":\"Test\"}");
         #endregion
+        
         #region Act
 
         var actual = await _exchangeJsonToXmlUseCase.Handle(new ExchangeJsonToXmlCommandRequest
@@ -86,6 +89,7 @@ public class ExchangeJsonToXmlUseCaseTest
         }, CancellationToken.None);
 
         #endregion
+        
         #region Assert
         actual.Should().NotBeNull();
         actual.IsFaulted.Should().BeTrue();
@@ -109,6 +113,7 @@ public class ExchangeJsonToXmlUseCaseTest
         //create FormFile with desired data
         IFormFile file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
         #endregion
+        
         #region Act
         var actual = await _exchangeJsonToXmlUseCase.Handle(new ExchangeJsonToXmlCommandRequest
         {
@@ -116,6 +121,7 @@ public class ExchangeJsonToXmlUseCaseTest
         }, CancellationToken.None);
 
         #endregion
+        
         #region Assert
         actual.Should().NotBeNull();
         actual.IsFaulted.Should().BeTrue();

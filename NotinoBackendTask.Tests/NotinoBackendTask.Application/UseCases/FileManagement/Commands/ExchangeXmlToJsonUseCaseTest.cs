@@ -60,14 +60,12 @@ public class ExchangeXmlToJsonUseCaseTest
 
         #endregion
 
-
         #region Act
         var actual = await _exchangeXmlToJsonUseCase.Handle(new ExchangeXmlToJsonCommandRequest
         {
             File = file,
         }, CancellationToken.None);
         #endregion
-
 
         #region Assert
         actual.Should().NotBeNull();
@@ -111,7 +109,6 @@ public class ExchangeXmlToJsonUseCaseTest
         //create FormFile with desired data
         IFormFile file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
         #endregion
-
 
         #region Act
         var actual = await _exchangeXmlToJsonUseCase.Handle(new ExchangeXmlToJsonCommandRequest
