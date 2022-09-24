@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,6 +7,15 @@
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
+    <Compile Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+    <EmbeddedResource Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
+    <EmbeddedResource Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+    <None Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
+    <None Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
@@ -24,8 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\FileManagement\Queries\" />
-    <Folder Include="UseCases\Http\Commands\" />
+	<Folder Include="NotinoBackendTask.Infrastructure\Helpers" />
+	<Folder Include="UseCases\" />
   </ItemGroup>
 
   <ItemGroup>
