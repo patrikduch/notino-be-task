@@ -11,10 +11,16 @@
   <ItemGroup>
     <Compile Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
     <Compile Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+    <Compile Remove="NotinoBackendTask.Infrastructure\**" />
+    <Compile Remove="UseCases\**" />
     <EmbeddedResource Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
     <EmbeddedResource Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+    <EmbeddedResource Remove="NotinoBackendTask.Infrastructure\**" />
+    <EmbeddedResource Remove="UseCases\**" />
     <None Remove="NotinoBackendTask.Application\UseCases\FileManagement\Queries\**" />
     <None Remove="NotinoBackendTask.Application\UseCases\Http\Commands\**" />
+    <None Remove="NotinoBackendTask.Infrastructure\**" />
+    <None Remove="UseCases\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,11 +36,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-	<Folder Include="NotinoBackendTask.Infrastructure\Helpers" />
-	<Folder Include="UseCases\" />
   </ItemGroup>
 
   <ItemGroup>
